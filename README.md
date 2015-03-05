@@ -16,6 +16,8 @@ En este proyecto se encuentra todo lo necesario para poder ejecutarlo y realizar
 
 ![configuration](https://github.com/stevensotelo/msfmodelotransporte/blob/master/descripcionproblema.png)
 
+(Tomado del libro Investigación de Operaciones Volumen I. Francisco Alfonso Chediak Pinzón, Ingeniero Industrial)
+
 ## Dependencias
 
 * Microsoft Solver Foundation (Microsoft.Solver.Foundation.dll)
