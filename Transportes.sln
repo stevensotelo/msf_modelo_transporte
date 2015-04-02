@@ -5,6 +5,13 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transportes", "Transportes\Transportes.csproj", "{0932338F-B246-4E8B-AA7C-A582A02C8411}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFTransportes", "WCFTransportes\WCFTransportes.csproj", "{9C620952-3200-4578-8C97-25E149F0BDBB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClienteServicio", "ClienteServicio\ClienteServicio.csproj", "{EB8A1BF4-06A4-4776-84F8-977E84BF1911}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9C620952-3200-4578-8C97-25E149F0BDBB} = {9C620952-3200-4578-8C97-25E149F0BDBB}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +22,14 @@ Global
 		{0932338F-B246-4E8B-AA7C-A582A02C8411}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0932338F-B246-4E8B-AA7C-A582A02C8411}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0932338F-B246-4E8B-AA7C-A582A02C8411}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C620952-3200-4578-8C97-25E149F0BDBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C620952-3200-4578-8C97-25E149F0BDBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C620952-3200-4578-8C97-25E149F0BDBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C620952-3200-4578-8C97-25E149F0BDBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB8A1BF4-06A4-4776-84F8-977E84BF1911}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB8A1BF4-06A4-4776-84F8-977E84BF1911}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB8A1BF4-06A4-4776-84F8-977E84BF1911}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB8A1BF4-06A4-4776-84F8-977E84BF1911}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

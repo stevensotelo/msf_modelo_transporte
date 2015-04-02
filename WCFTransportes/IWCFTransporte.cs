@@ -12,6 +12,6 @@ namespace WCFTransportes
     public interface IWCFTransporte
     {
         [OperationContract]
-        string modeloTransporte(string xmlCostos, string xmlDemanda, string xmlDisponibilidad);
+        string modeloTransporte(string parametros);
     }
 }
