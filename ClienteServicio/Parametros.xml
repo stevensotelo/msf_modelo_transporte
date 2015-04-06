@@ -1,145 +1,139 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" standalone="yes"?>
 <parametros>
-  <costos>
-    <costo>
-      <fabrica>Fabrica 1</fabrica>
-      <distribuidor>Distribuidor 1</distribuidor>
-      <valor>20</valor>
-    </costo>
-    <costo>
-      <fabrica>Fabrica 1</fabrica>
-      <distribuidor>Distribuidor 2</distribuidor>
-      <valor>19</valor>
-    </costo>
-    <costo>
-      <fabrica>Fabrica 1</fabrica>
-      <distribuidor>Distribuidor 3</distribuidor>
-      <valor>14</valor>
-    </costo>
-    <costo>
-      <fabrica>Fabrica 1</fabrica>
-      <distribuidor>Distribuidor 4</distribuidor>
-      <valor>21</valor>
-    </costo>
-    <costo>
-      <fabrica>Fabrica 1</fabrica>
-      <distribuidor>Distribuidor 5</distribuidor>
-      <valor>16</valor>
-    </costo>
-    <costo>
-      <fabrica>Fabrica 2</fabrica>
-      <distribuidor>Distribuidor 1</distribuidor>
-      <valor>15</valor>
-    </costo>
-    <costo>
-      <fabrica>Fabrica 2</fabrica>
-      <distribuidor>Distribuidor 2</distribuidor>
-      <valor>20</valor>
-    </costo>
-    <costo>
-      <fabrica>Fabrica 2</fabrica>
-      <distribuidor>Distribuidor 3</distribuidor>
-      <valor>13</valor>
-    </costo>
-    <costo>
-      <fabrica>Fabrica 2</fabrica>
-      <distribuidor>Distribuidor 4</distribuidor>
-      <valor>19</valor>
-    </costo>
-    <costo>
-      <fabrica>Fabrica 2</fabrica>
-      <distribuidor>Distribuidor 5</distribuidor>
-      <valor>16</valor>
-    </costo>
-    <costo>
-      <fabrica>Fabrica 3</fabrica>
-      <distribuidor>Distribuidor 1</distribuidor>
-      <valor>18</valor>
-    </costo>
-    <costo>
-      <fabrica>Fabrica 3</fabrica>
-      <distribuidor>Distribuidor 2</distribuidor>
-      <valor>15</valor>
-    </costo>
-    <costo>
-      <fabrica>Fabrica 3</fabrica>
-      <distribuidor>Distribuidor 3</distribuidor>
-      <valor>18</valor>
-    </costo>
-    <costo>
-      <fabrica>Fabrica 3</fabrica>
-      <distribuidor>Distribuidor 4</distribuidor>
-      <valor>20</valor>
-    </costo>
-    <costo>
-      <fabrica>Fabrica 3</fabrica>
-      <distribuidor>Distribuidor 5</distribuidor>
-      <valor>9999</valor>
-    </costo>
-    <costo>
-      <fabrica>Fabrica 4</fabrica>
-      <distribuidor>Distribuidor 1</distribuidor>
-      <valor>0</valor>
-    </costo>
-    <costo>
-      <fabrica>Fabrica 4</fabrica>
-      <distribuidor>Distribuidor 2</distribuidor>
-      <valor>0</valor>
-    </costo>
-    <costo>
-      <fabrica>Fabrica 4</fabrica>
-      <distribuidor>Distribuidor 3</distribuidor>
-      <valor>0</valor>
-    </costo>
-    <costo>
-      <fabrica>Fabrica 4</fabrica>
-      <distribuidor>Distribuidor 4</distribuidor>
-      <valor>0</valor>
-    </costo>
-    <costo>
-      <fabrica>Fabrica 4</fabrica>
-      <distribuidor>Distribuidor 5</distribuidor>
-      <valor>0</valor>
-    </costo>
-  </costos>
-  <disponibilidades>
-    <disponibilidad>
-      <fabrica>Fabrica 1</fabrica>
-      <valor>40</valor>
-    </disponibilidad>
-    <disponibilidad>
-      <fabrica>Fabrica 2</fabrica>
-      <valor>60</valor>
-    </disponibilidad>
-    <disponibilidad>
-      <fabrica>Fabrica 3</fabrica>
-      <valor>70</valor>
-    </disponibilidad>
-    <disponibilidad>
-      <fabrica>Fabrica 4</fabrica>
-      <valor>50</valor>
-    </disponibilidad>
-  </disponibilidades>
-  <demandas>
-    <demanda>
-      <distribuidor>Distribuidor 1</distribuidor>
-      <valor>30</valor>
-    </demanda>
-    <demanda>
-      <distribuidor>Distribuidor 2</distribuidor>
-      <valor>40</valor>
-    </demanda>
-    <demanda>
-      <distribuidor>Distribuidor 3</distribuidor>
-      <valor>50</valor>
-    </demanda>
-    <demanda>
-      <distribuidor>Distribuidor 4</distribuidor>
-      <valor>40</valor>
-    </demanda>
-    <demanda>
-      <distribuidor>Distribuidor 5</distribuidor>
-      <valor>60</valor>
-    </demanda>
-  </demandas>
+  <demanda>
+    <distribuidor>Distribuidor 1</distribuidor>
+    <valor>30</valor>
+  </demanda>
+  <demanda>
+    <distribuidor>Distribuidor 2</distribuidor>
+    <valor>40</valor>
+  </demanda>
+  <demanda>
+    <distribuidor>Distribuidor 3</distribuidor>
+    <valor>50</valor>
+  </demanda>
+  <demanda>
+    <distribuidor>Distribuidor 4</distribuidor>
+    <valor>40</valor>
+  </demanda>
+  <demanda>
+    <distribuidor>Distribuidor 5</distribuidor>
+    <valor>60</valor>
+  </demanda>
+  <costo>
+    <fabrica>Fabrica 1</fabrica>
+    <distribuidor>Distribuidor 1</distribuidor>
+    <valor>20</valor>
+  </costo>
+  <costo>
+    <fabrica>Fabrica 1</fabrica>
+    <distribuidor>Distribuidor 2</distribuidor>
+    <valor>19</valor>
+  </costo>
+  <costo>
+    <fabrica>Fabrica 1</fabrica>
+    <distribuidor>Distribuidor 3</distribuidor>
+    <valor>14</valor>
+  </costo>
+  <costo>
+    <fabrica>Fabrica 1</fabrica>
+    <distribuidor>Distribuidor 4</distribuidor>
+    <valor>21</valor>
+  </costo>
+  <costo>
+    <fabrica>Fabrica 1</fabrica>
+    <distribuidor>Distribuidor 5</distribuidor>
+    <valor>16</valor>
+  </costo>
+  <costo>
+    <fabrica>Fabrica 2</fabrica>
+    <distribuidor>Distribuidor 1</distribuidor>
+    <valor>15</valor>
+  </costo>
+  <costo>
+    <fabrica>Fabrica 2</fabrica>
+    <distribuidor>Distribuidor 2</distribuidor>
+    <valor>20</valor>
+  </costo>
+  <costo>
+    <fabrica>Fabrica 2</fabrica>
+    <distribuidor>Distribuidor 3</distribuidor>
+    <valor>13</valor>
+  </costo>
+  <costo>
+    <fabrica>Fabrica 2</fabrica>
+    <distribuidor>Distribuidor 4</distribuidor>
+    <valor>19</valor>
+  </costo>
+  <costo>
+    <fabrica>Fabrica 2</fabrica>
+    <distribuidor>Distribuidor 5</distribuidor>
+    <valor>16</valor>
+  </costo>
+  <costo>
+    <fabrica>Fabrica 3</fabrica>
+    <distribuidor>Distribuidor 1</distribuidor>
+    <valor>18</valor>
+  </costo>
+  <costo>
+    <fabrica>Fabrica 3</fabrica>
+    <distribuidor>Distribuidor 2</distribuidor>
+    <valor>15</valor>
+  </costo>
+  <costo>
+    <fabrica>Fabrica 3</fabrica>
+    <distribuidor>Distribuidor 3</distribuidor>
+    <valor>18</valor>
+  </costo>
+  <costo>
+    <fabrica>Fabrica 3</fabrica>
+    <distribuidor>Distribuidor 4</distribuidor>
+    <valor>20</valor>
+  </costo>
+  <costo>
+    <fabrica>Fabrica 3</fabrica>
+    <distribuidor>Distribuidor 5</distribuidor>
+    <valor>2147483647</valor>
+  </costo>
+  <costo>
+    <fabrica>Fabrica 4</fabrica>
+    <distribuidor>Distribuidor 1</distribuidor>
+    <valor>0</valor>
+  </costo>
+  <costo>
+    <fabrica>Fabrica 4</fabrica>
+    <distribuidor>Distribuidor 2</distribuidor>
+    <valor>0</valor>
+  </costo>
+  <costo>
+    <fabrica>Fabrica 4</fabrica>
+    <distribuidor>Distribuidor 3</distribuidor>
+    <valor>0</valor>
+  </costo>
+  <costo>
+    <fabrica>Fabrica 4</fabrica>
+    <distribuidor>Distribuidor 4</distribuidor>
+    <valor>0</valor>
+  </costo>
+  <costo>
+    <fabrica>Fabrica 4</fabrica>
+    <distribuidor>Distribuidor 5</distribuidor>
+    <valor>0</valor>
+  </costo>
+  <disponibilidad>
+    <fabrica>Fabrica 1</fabrica>
+    <valor>40</valor>
+  </disponibilidad>
+  <disponibilidad>
+    <fabrica>Fabrica 2</fabrica>
+    <valor>60</valor>
+  </disponibilidad>
+  <disponibilidad>
+    <fabrica>Fabrica 3</fabrica>
+    <valor>70</valor>
+  </disponibilidad>
+  <disponibilidad>
+    <fabrica>Fabrica 4</fabrica>
+    <valor>50</valor>
+  </disponibilidad>
 </parametros>

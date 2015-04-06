@@ -23,6 +23,25 @@ namespace WCFTransportes
                 XDocument documento = XDocument.Parse(parametros);
                 DataSet ds = new DataSet();
                 ds.ReadXml(documento.CreateReader());
+                // Configurar tablas
+                DataTable tDemanda = ds.Tables["demanda"].Clone();
+                tDemanda.Columns["valor"].DataType = typeof(int);
+                tDemanda.Columns["distribuidor"].DataType = typeof(string);
+                foreach (DataRow row in ds.Tables["demanda"].Rows)
+                    tDemanda.ImportRow(row);
+
+                DataTable tDisponibilidad = ds.Tables["disponibilidad"].Clone();
+                tDisponibilidad.Columns["valor"].DataType = typeof(int);
+                tDisponibilidad.Columns["fabrica"].DataType = typeof(string);
+                foreach (DataRow row in ds.Tables["disponibilidad"].Rows)
+                    tDisponibilidad.ImportRow(row);
+
+                DataTable tCosto = ds.Tables["costo"].Clone();
+                tCosto.Columns["valor"].DataType = typeof(int);
+                tCosto.Columns["fabrica"].DataType = typeof(string);
+                tCosto.Columns["distribuidor"].DataType = typeof(string);
+                foreach (DataRow row in ds.Tables["costo"].Rows)
+                    tCosto.ImportRow(row);
                 
                 SolverContext context = SolverContext.GetContext();
                 context.ClearModel();
@@ -32,13 +51,13 @@ namespace WCFTransportes
                 Set distribuidores = new Set(Domain.Any, "distribuidores");
 
                 Parameter demanda = new Parameter(Domain.Integer, "demanda", distribuidores);
-                demanda.SetBinding(ds.Tables["demanda"].AsEnumerable(), "valor", "distribuidor");
+                demanda.SetBinding(tDemanda.AsEnumerable(), "valor", "distribuidor");
 
                 Parameter costos = new Parameter(Domain.Integer, "costos", fabricas, distribuidores);
-                costos.SetBinding(ds.Tables["costo"].AsEnumerable(), "valor", "fabrica", "distribuidor");
+                costos.SetBinding(tCosto.AsEnumerable(), "valor", "fabrica", "distribuidor");
 
                 Parameter disponibilidad = new Parameter(Domain.Integer, "disponibilidad", fabricas);
-                disponibilidad.SetBinding(ds.Tables["disponibilidad"].AsEnumerable(), "valor", "fabrica");
+                disponibilidad.SetBinding(tDisponibilidad.AsEnumerable(), "valor", "fabrica");
 
                 model.AddParameters(demanda, costos, disponibilidad);
 

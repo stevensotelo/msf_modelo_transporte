@@ -14,6 +14,17 @@ namespace Transportes
         {
             try
             {
+                /* Crea un dataset con los datos */
+                /*
+                DataSet ds = new DataSet("parametros");
+                ds.Tables.Add(getDemanda());
+                ds.Tables[0].TableName = "demanda";
+                ds.Tables.Add(getCostos());
+                ds.Tables[1].TableName = "costo";
+                ds.Tables.Add(getDisponibilidad());
+                ds.Tables[2].TableName = "disponibilidad";
+                ds.WriteXml("data.ds");*/
+
                 //https://nathanbrixius.wordpress.com/2009/04/24/modeling-a-production-planning-problem-using-solver-foundation/
                 SolverContext context = SolverContext.GetContext();
                 context.ClearModel();
@@ -23,13 +34,13 @@ namespace Transportes
                 Set distribuidores = new Set(Domain.Any, "distribuidores");
 
                 Parameter demanda = new Parameter(Domain.Integer, "demanda", distribuidores);
-                demanda.SetBinding(getDemanda().AsEnumerable(), "Demanda", "Distribuidor");
+                demanda.SetBinding(getDemanda().AsEnumerable(), "valor", "distribuidor");
 
                 Parameter costos = new Parameter(Domain.Integer, "costos", fabricas, distribuidores);
-                costos.SetBinding(getCostos().AsEnumerable(), "Costo", "Fabrica", "Distribuidor");
+                costos.SetBinding(getCostos().AsEnumerable(), "valor", "fabrica", "distribuidor");
 
                 Parameter disponibilidad = new Parameter(Domain.Integer, "disponibilidad", fabricas);
-                disponibilidad.SetBinding(getDisponibilidad().AsEnumerable(), "Disponibilidad", "Fabrica");
+                disponibilidad.SetBinding(getDisponibilidad().AsEnumerable(), "valor", "fabrica");
 
                 model.AddParameters(demanda, costos, disponibilidad);
 
@@ -56,9 +67,9 @@ namespace Transportes
         public static DataTable getCostos()
         {
             DataTable r = new DataTable();
-            r.Columns.Add("Fabrica", typeof(string));
-            r.Columns.Add("Distribuidor", typeof(string));
-            r.Columns.Add("Costo", typeof(int));
+            r.Columns.Add("fabrica", typeof(string));
+            r.Columns.Add("distribuidor", typeof(string));
+            r.Columns.Add("valor", typeof(int));
             for (int i = 0; i < fabricas.Count(); i++)
             {
                 for (int j = 0; j < distribuidores.Count(); j++)
@@ -77,8 +88,8 @@ namespace Transportes
         public static DataTable getDisponibilidad()
         {
             DataTable r = new DataTable();
-            r.Columns.Add("Fabrica", typeof(string));
-            r.Columns.Add("Disponibilidad", typeof(int));
+            r.Columns.Add("fabrica", typeof(string));
+            r.Columns.Add("valor", typeof(int));
             for (int i = 0; i < disponibilidad.Length; i++)
             {
                 DataRow fila = r.NewRow();
@@ -92,8 +103,8 @@ namespace Transportes
         public static DataTable getDemanda()
         {
             DataTable r = new DataTable();
-            r.Columns.Add("Distribuidor", typeof(string));
-            r.Columns.Add("Demanda", typeof(int));
+            r.Columns.Add("distribuidor", typeof(string));
+            r.Columns.Add("valor", typeof(int));
             for (int i = 0; i < demanda.Length; i++)
             {
                 DataRow fila = r.NewRow();
