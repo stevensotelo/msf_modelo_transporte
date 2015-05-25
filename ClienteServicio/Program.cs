@@ -14,12 +14,13 @@ namespace ClienteServicio
         {
             try
             {
-                StreamReader lector = new StreamReader(@"C:\Users\hsotelo\Desktop\msf_modelo_transporte\ClienteServicio\Parametros.xml");
-                //StreamReader lector = new StreamReader(@"C:\Users\Steven\Desktop\msf_modelo_transporte\ClienteServicio\Parametros.xml");
+                
+                StreamReader lector = new StreamReader(@"Ruta de archivo");
                 string xml = lector.ReadToEnd();
                 WCFTransporteClient cliente=new WCFTransporteClient();
                 Console.WriteLine(cliente.modeloTransporte(xml));
                 Console.ReadLine();
+
             }
             catch(Exception ex)
             {

@@ -20,10 +20,11 @@ namespace WCFTransportes
             string r="<?xml version=\"1.0\" encoding=\"UTF-8\"?>";
             try
             {
+
                 XDocument documento = XDocument.Parse(parametros);
                 DataSet ds = new DataSet();
                 ds.ReadXml(documento.CreateReader());
-                // Configurar tablas
+                
                 DataTable tDemanda = ds.Tables["demanda"].Clone();
                 tDemanda.Columns["valor"].DataType = typeof(int);
                 tDemanda.Columns["distribuidor"].DataType = typeof(string);

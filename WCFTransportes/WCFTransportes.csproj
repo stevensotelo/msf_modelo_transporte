@@ -41,13 +41,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.Solver.Foundation">
-      <HintPath>..\Microsoft.Solver.Foundation.dll</HintPath>
-    </Reference>
+    <Reference Include="Microsoft.Solver.Foundation" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
-    <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -78,6 +76,8 @@
     <Folder Include="Fuente\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Properties\PublishProfiles\msftransportes - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\msftransportes - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
