@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Transportes
 {
@@ -14,18 +15,33 @@ namespace Transportes
         {
             try
             {
-                /* Crea un dataset con los datos */
-                /*
-                DataSet ds = new DataSet("parametros");
-                ds.Tables.Add(getDemanda());
-                ds.Tables[0].TableName = "demanda";
-                ds.Tables.Add(getCostos());
-                ds.Tables[1].TableName = "costo";
-                ds.Tables.Add(getDisponibilidad());
-                ds.Tables[2].TableName = "disponibilidad";
-                ds.WriteXml("data.ds");*/
 
-                //https://nathanbrixius.wordpress.com/2009/04/24/modeling-a-production-planning-problem-using-solver-foundation/
+                // TODO: Reemplaza la ruta del archivo por la ubicación de tu archivo
+                string ruta_archivo = @"C:\Users\Steven\Desktop\msf_modelo_transporte\Transportes\Parametros.xml";
+                XDocument documento = XDocument.Load(ruta_archivo);
+                
+                DataSet ds = new DataSet();
+                ds.ReadXml(documento.CreateReader());
+
+                DataTable tDemanda = ds.Tables["demanda"].Clone();
+                tDemanda.Columns["valor"].DataType = typeof(int);
+                tDemanda.Columns["distribuidor"].DataType = typeof(string);
+                foreach (DataRow row in ds.Tables["demanda"].Rows)
+                    tDemanda.ImportRow(row);
+
+                DataTable tDisponibilidad = ds.Tables["disponibilidad"].Clone();
+                tDisponibilidad.Columns["valor"].DataType = typeof(int);
+                tDisponibilidad.Columns["fabrica"].DataType = typeof(string);
+                foreach (DataRow row in ds.Tables["disponibilidad"].Rows)
+                    tDisponibilidad.ImportRow(row);
+
+                DataTable tCosto = ds.Tables["costo"].Clone();
+                tCosto.Columns["valor"].DataType = typeof(int);
+                tCosto.Columns["fabrica"].DataType = typeof(string);
+                tCosto.Columns["distribuidor"].DataType = typeof(string);
+                foreach (DataRow row in ds.Tables["costo"].Rows)
+                    tCosto.ImportRow(row);
+
                 SolverContext context = SolverContext.GetContext();
                 context.ClearModel();
                 Model model = context.CreateModel();
@@ -34,13 +50,13 @@ namespace Transportes
                 Set distribuidores = new Set(Domain.Any, "distribuidores");
 
                 Parameter demanda = new Parameter(Domain.Integer, "demanda", distribuidores);
-                demanda.SetBinding(getDemanda().AsEnumerable(), "valor", "distribuidor");
+                demanda.SetBinding(tDemanda.AsEnumerable(), "valor", "distribuidor");
 
                 Parameter costos = new Parameter(Domain.Integer, "costos", fabricas, distribuidores);
-                costos.SetBinding(getCostos().AsEnumerable(), "valor", "fabrica", "distribuidor");
+                costos.SetBinding(tCosto.AsEnumerable(), "valor", "fabrica", "distribuidor");
 
                 Parameter disponibilidad = new Parameter(Domain.Integer, "disponibilidad", fabricas);
-                disponibilidad.SetBinding(getDisponibilidad().AsEnumerable(), "valor", "fabrica");
+                disponibilidad.SetBinding(tDisponibilidad.AsEnumerable(), "valor", "fabrica");
 
                 model.AddParameters(demanda, costos, disponibilidad);
 
@@ -48,8 +64,8 @@ namespace Transportes
                 model.AddDecision(x);
 
                 model.AddConstraint("Disponibilidad", Model.ForEach(fabricas, f => Model.Sum(Model.ForEach(distribuidores, d => x[f, d])) <= disponibilidad[f]));
-                model.AddConstraint("Demanda", Model.ForEach(distribuidores, d => Model.Sum(Model.ForEach(fabricas, f =>  x[f, d])) >= demanda[d]));
-                
+                model.AddConstraint("Demanda", Model.ForEach(distribuidores, d => Model.Sum(Model.ForEach(fabricas, f => x[f, d])) >= demanda[d]));
+
                 model.AddGoal("Meta", GoalKind.Minimize, Model.Sum(Model.ForEach(fabricas, f => Model.ForEach(distribuidores, d => costos[f, d] * x[f, d]))));
 
                 Solution solution = context.Solve(new SimplexDirective());
@@ -63,64 +79,5 @@ namespace Transportes
                 Console.ReadLine();
             }
         }
-
-        public static DataTable getCostos()
-        {
-            DataTable r = new DataTable();
-            r.Columns.Add("fabrica", typeof(string));
-            r.Columns.Add("distribuidor", typeof(string));
-            r.Columns.Add("valor", typeof(int));
-            for (int i = 0; i < fabricas.Count(); i++)
-            {
-                for (int j = 0; j < distribuidores.Count(); j++)
-                {
-                    DataRow fila = r.NewRow();
-                    fila[0] = fabricas[i];
-                    fila[1] = distribuidores[j];
-                    fila[2] = costos[i][j];
-                    r.Rows.Add(fila);
-                }
-
-            }
-            return r;
-        }
-
-        public static DataTable getDisponibilidad()
-        {
-            DataTable r = new DataTable();
-            r.Columns.Add("fabrica", typeof(string));
-            r.Columns.Add("valor", typeof(int));
-            for (int i = 0; i < disponibilidad.Length; i++)
-            {
-                DataRow fila = r.NewRow();
-                fila[0] = fabricas[i];
-                fila[1] = disponibilidad[i];
-                r.Rows.Add(fila);
-            }
-            return r;
-        }
-
-        public static DataTable getDemanda()
-        {
-            DataTable r = new DataTable();
-            r.Columns.Add("distribuidor", typeof(string));
-            r.Columns.Add("valor", typeof(int));
-            for (int i = 0; i < demanda.Length; i++)
-            {
-                DataRow fila = r.NewRow();
-                fila[0] = distribuidores[i];
-                fila[1] = demanda[i];
-                r.Rows.Add(fila);
-            }
-            return r;
-        }
-
-        public static string[] fabricas = new string[] { "Fabrica 1", "Fabrica 2", "Fabrica 3", "Fabrica 4" };        
-        public static string[] distribuidores = new string[] { "Distribuidor 1", "Distribuidor 2", "Distribuidor 3", "Distribuidor 4", "Distribuidor 5" };
-
-        public static int[][] costos = new int[][] { new int[] { 20, 19, 14, 21, 16 }, new int[] { 15, 20, 13, 19, 16 }, new int[] { 18, 15, 18, 20, int.MaxValue }, new int[] { 0, 0, 0, 0, 0 } };
-        public static int[] demanda = new int[] { 30, 40, 50, 40, 60 };
-        public static int[] disponibilidad = new int[] { 40, 60, 70, 50 };
-        
     }
 }
