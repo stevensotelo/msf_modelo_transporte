@@ -1,4 +1,4 @@
-﻿using ClienteServicio.WCFTransportes;
+﻿using ClienteServicio.WCFTransporte;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,12 +15,12 @@ namespace ClienteServicio
             try
             {
                 
-                StreamReader lector = new StreamReader(@"Ruta de archivo");
+                StreamReader lector = new StreamReader(@"Ruta archivo");
                 string xml = lector.ReadToEnd();
                 WCFTransporteClient cliente=new WCFTransporteClient();
                 Console.WriteLine(cliente.modeloTransporte(xml));
                 Console.ReadLine();
-
+                
             }
             catch(Exception ex)
             {
