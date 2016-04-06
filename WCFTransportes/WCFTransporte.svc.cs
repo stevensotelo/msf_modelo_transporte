@@ -70,9 +70,10 @@ namespace WCFTransportes
 
                 model.AddGoal("Meta", GoalKind.Minimize, Model.Sum(Model.ForEach(fabricas, f => Model.ForEach(distribuidores, d => costos[f, d] * x[f, d]))));
 
-                Solution solution = context.Solve(new SimplexDirective());
-                Report report = solution.GetReport();
-                return "<status>ok</status><mensaje>" + report.ToString() + "</mensaje>";
+                Solution solution_simplex = context.Solve(new SimplexDirective());
+                Report report_simplex = solution_simplex.GetReport();
+
+                return "<status>ok</status><mensaje>" + report_simplex.ToString() + "</mensaje>";
             }
             catch (Exception ex)
             {

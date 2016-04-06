@@ -77,10 +77,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Fuente\" />
+    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\PublishProfiles\msftransportes - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\msftransportes - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
