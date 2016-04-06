@@ -45,7 +45,7 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\WCFTransportes\Reference.cs">
+    <Compile Include="Service References\WCFTransporte\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -53,29 +53,29 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Service References\WCFTransportes\WCFTransporte.wsdl" />
-    <None Include="Service References\WCFTransportes\WCFTransporte.xsd">
+    <None Include="Service References\WCFTransporte\WCFTransporte.wsdl" />
+    <None Include="Service References\WCFTransporte\WCFTransporte.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\WCFTransportes\WCFTransporte1.xsd">
+    <None Include="Service References\WCFTransporte\WCFTransporte1.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Parametros.xml" />
-    <None Include="Service References\WCFTransportes\Reference.svcmap">
+    <None Include="Service References\WCFTransporte\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Service References\WCFTransportes\configuration.svcinfo" />
-    <None Include="Service References\WCFTransportes\configuration91.svcinfo" />
-    <None Include="Service References\WCFTransportes\WCFTransporte.disco" />
+    <None Include="Service References\WCFTransporte\configuration.svcinfo" />
+    <None Include="Service References\WCFTransporte\configuration91.svcinfo" />
+    <None Include="Service References\WCFTransporte\WCFTransporte.disco" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\WCFTransportes\" />
+    <WCFMetadataStorage Include="Service References\WCFTransporte\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
